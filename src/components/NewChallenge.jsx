@@ -64,7 +64,7 @@ export default function NewChallenge({ onDone }) {
             // staggerchildren: delay -- not working
             visible: {
               opacity: 1,
-              transition: { staggerChildren: 0.5 },
+              transition: { staggerChildren: 0.05 },
               hidden: { opacity: 0 },
             },
           }}
@@ -74,7 +74,7 @@ export default function NewChallenge({ onDone }) {
               // elements passed down by its parent
               variants={{
                 hidden: { opacity: 0, scale: 0.5 },
-                visible: { opacity: 1, scale: 1 },
+                visible: { opacity: 1, scale: [0.8, 1.3, 1] }, // array for dynamic values
               }}
               initial="hidden"
               animate="visible"

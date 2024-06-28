@@ -58,7 +58,17 @@ export default function NewChallenge({ onDone }) {
           <input ref={deadline} type="date" name="deadline" id="deadline" />
         </p>
 
-        <ul id="new-challenge-images">
+        <motion.ul
+          id="new-challenge-images"
+          variants={{
+            // staggerchildren: delay -- not working
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.5 },
+              hidden: { opacity: 0 },
+            },
+          }}
+        >
           {images.map((image) => (
             <motion.li
               // elements passed down by its parent
@@ -77,7 +87,7 @@ export default function NewChallenge({ onDone }) {
               <img {...image} />
             </motion.li>
           ))}
-        </ul>
+        </motion.ul>
 
         <p className="new-challenge-actions">
           <button type="button" onClick={onDone}>
